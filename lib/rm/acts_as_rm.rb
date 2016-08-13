@@ -7,10 +7,11 @@ module Rm
 
     module ClassMethods
       def acts_as_rm(value_field = :value, count_field = :repeat_count)
-        attr_accessor :value_field, :count_field
+        cattr_accessor :value_field, :count_field
 
         self.value_field = value_field
         self.count_field = count_field
+        include Rm::ActsAsRm::LocalInstanceMethods
       end
     end
 
